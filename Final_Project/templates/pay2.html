@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}輸入商品查詢關鍵字{% endblock %}
+{% block body %}
+<form method="post" action="/pay">
+  {% if complaint %}<span class="complaint">{{ complaint }}</span>{% endif %}
+  <label>Keyword: <input name="search_keyword" value="{{ search_keyword }}"></label>
+  <input name="csrf_token" type="hidden" value="{{ csrf_token }}">
+  <button type="submit">Search</button> | <a href="/">Cancel</a>
+</form>
+{% endblock %}

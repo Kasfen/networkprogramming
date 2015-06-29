@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Welcome, {{ username }}{% endblock %}
+{% block body %}
+{% for message in flash_messages %}
+  <div class="flash_message">{{ message }}<a href="/">&times;</a></div>
+{% endfor %}
+<p>search Result</p>
+<a href="/pay">Research</a> | <a href="/logout">Log out</a>
+<table border=1>
+　<tr>
+　　<th>博客來商品名稱</th>
+　　<th>價格</th>
+　　<th>金石堂商品名稱</th>
+　　<th>價格</th>
+　</tr>
+	{% for p in payments %}
+	<tr>
+	<th><a target="_new" href={{p.y}}>{{p.x}}</a></th>
+	<th>{{p.z}}</th>
+	<th><a target="_new" href="http://www.kingstone.com.tw/{{p.y2}}">{{p.x2}}</a></th>
+	<th>{{p.z2}}</th>
+	</tr>	
+	{% endfor %}
+</table>
+{% endblock %}
